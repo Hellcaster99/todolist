@@ -3,7 +3,7 @@ import { createSlice, configureStore } from "@reduxjs/toolkit"
 const counterSlice = createSlice({
     name: 'myList',
     initialState: {
-      list: JSON.parse(localStorage.getItem('mylist')).length !==0 ? JSON.parse(localStorage.getItem('mylist')) : [{text:"Type task and click on 'Add'",isDone:false},{text:"Click once on task to mark it done.",isDone:false},{text:"Click on a done task to delete it",isDone:false}]
+      list: JSON.parse(localStorage.getItem('mylist')).length ? JSON.parse(localStorage.getItem('mylist')) : [{text:"Type task and click on 'Add'",isDone:false},{text:"Click once on task to mark it done.",isDone:false},{text:"Click on a done task to delete it",isDone:false}]
     },
     reducers: {
       add: (state,action) => {
