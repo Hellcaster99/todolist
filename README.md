@@ -1,6 +1,8 @@
 Chinmay Pandya
 
-run -- npm install after cloning or downloading the zip file
-run -- npm start
+download the zip file or clone, open terminal.
+
+1) run --> npm install   
+2) run --> npm start
 
 Enjoy!
