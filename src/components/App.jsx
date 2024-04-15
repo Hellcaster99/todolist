@@ -1,12 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import List from "./List";
 import Input from "./Input";
+import { useSelector,useDispatch } from "react-redux";
+import { add } from "./Redux";
 
 function App() {
-  const [items, setItems] = useState([]);
+
+  const list = useSelector((state)=>state.list);
+  const dispatch = useDispatch();
 
   function addtolist(text){
-    (text!="") && setItems(prevItems => [...prevItems, text])
+    dispatch(add({text}))
   }
 
   return (
@@ -17,7 +21,7 @@ function App() {
       <Input onAdd={addtolist} />
       <div>
         <ul>
-          {items.map(item => <List text={item} /> )}
+          {list.map((item,i) => <List key={i} text={item.text} isDone={item.isDone} /> )}
         </ul>
       </div>
     </div>

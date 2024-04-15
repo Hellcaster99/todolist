@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import {task} from './Redux';
 
 function List(props) {
 
-    const [isDone, setDone] = useState(false);
+    const dispatch = useDispatch()
 
     var liststyle = {textDecoration: "line-through"};
 
-    function handleClick() {isDone ? setDone(false) : setDone(true);
-}
+    function handleClick() {
+        dispatch(task({text:props.text,isDone:props.isDone}))
+    }
 
     return(
-        <li onClick={handleClick} style={isDone ? liststyle: null}>{props.text}</li>
+        <li onClick={handleClick} style={props.isDone ? liststyle: null}>{props.text}</li>
     )
 }
 
